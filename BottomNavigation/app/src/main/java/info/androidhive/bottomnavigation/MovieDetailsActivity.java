@@ -52,16 +52,15 @@ public class MovieDetailsActivity extends AppCompatActivity {
             String moviesynopsis = getIntent().getStringExtra("movie_synopsis");
             String moviedirector = getIntent().getStringExtra("movie_director");
             String moviecast = getIntent().getStringExtra("movie_cast");
-            setImage(imageurl, moviename, movieadvice, movielanguage, movieduration, moviesynopsis, moviedirector, moviecast);
+            setDetails(imageurl, moviename, movieadvice, movielanguage, movieduration, moviesynopsis, moviedirector, moviecast);
         }
     }
 
-    private void setImage(String imageurl, String moviename, String movieadvice, String movielanguage, String movieduration, String moviesynopsis, String moviedirector, String moviecast){
-        Log.d(TAG, "setImage: setting to image and name to widgets.");
+    private void setDetails(String imageurl, String moviename, String movieadvice, String movielanguage, String movieduration, String moviesynopsis, String moviedirector, String moviecast){
+        Log.d(TAG, "setDetails: setting to image and name to widgets.");
 
         TextView image = findViewById(R.id.movie_title);
         image.setText(moviename);
-
 
         TextView advice = findViewById(R.id.movie_advice);
         advice.setText(movieadvice);
@@ -93,5 +92,15 @@ public class MovieDetailsActivity extends AppCompatActivity {
 
     }
 
+    public void viewShowTimes(View v){
+        Log.d(TAG, "viewShowTimes triggered");
+        Intent intent = new Intent(MovieDetailsActivity.this, MovieShowTimesActivity.class);
+        String moviename = getIntent().getStringExtra("movie_name");
+        intent.putExtra("movie_name" , moviename);
+        Log.d(TAG, "moviename that was chosen was " + moviename);
+        startActivity(intent);
+        Log.d(TAG, "new intent started");
+
+    }
 
 }
