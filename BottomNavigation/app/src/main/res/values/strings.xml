@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Movie Description</string>
+    <string name="title_search">Search</string>
+    <string name="title_movies">Movies</string>
+    <string name="title_promo">Promotion</string>
+    <string name="title_profile">Profile</string>
+</resources>

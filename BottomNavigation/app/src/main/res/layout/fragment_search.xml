@@ -1,0 +1,57 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="info.androidhive.bottomnavigation.fragment.SearchFragment"
+    android:background="@color/bgColor">
+
+    <Button
+        android:id="@+id/searchViewMovie"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="75dp"
+        android:layout_marginTop="100dp"
+        android:layout_marginRight="75dp"
+        android:background="@android:color/darker_gray"
+        android:text="SELECT MOVIE"
+        android:textSize="30sp" />
+
+    <Button
+        android:id="@+id/searchViewDate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="75dp"
+        android:layout_marginTop="200dp"
+        android:layout_marginRight="75dp"
+        android:background="@android:color/darker_gray"
+        android:text="SELECT DATE"
+        android:textSize="30sp" />
+
+    <Button
+        android:id="@+id/Search"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="75dp"
+        android:layout_marginTop="350dp"
+        android:layout_marginRight="75dp"
+        android:background="@android:color/holo_orange_dark"
+        android:onClick="findMovie"
+        android:text="SEARCH"
+        android:textSize="32sp" />
+
+    <ListView
+        android:id="@+id/listViewMovie"
+        android:layout_width="346dp"
+        android:layout_height="367dp"
+        android:layout_below="@+id/searchViewMovie"
+        android:layout_marginLeft="25dp"
+        android:layout_marginTop="145dp"
+        android:layout_marginRight="20dp"
+        android:background="@android:color/darker_gray"
+        android:divider="#ad5"
+        android:dividerHeight="2dp"
+        android:visibility="invisible">
+
+    </ListView>
+
+</FrameLayout>
