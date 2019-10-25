@@ -284,6 +284,7 @@ public class MovieFragment extends Fragment implements PopupMenu.OnMenuItemClick
         }
     }
 
+
     public void showPopUp(View v){
         PopupMenu popup = new PopupMenu(getActivity(), v);
         popup.setOnMenuItemClickListener(this);

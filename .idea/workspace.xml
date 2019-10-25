@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="2e531d4c-d04c-4974-a305-0cf8d3c1ed1e" name="Default Changelist" comment="" />
+    <list default="true" id="2e531d4c-d04c-4974-a305-0cf8d3c1ed1e" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -15,8 +18,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/BottomNavigation/app/src/androidTest/java/info/androidhive/bottomnavigation/ExampleInstrumentedTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="376">
-              <caret line="24" column="5" selection-start-line="24" selection-start-column="5" selection-end-line="24" selection-end-column="5" />
+            <state relative-caret-position="153">
+              <caret line="9" column="33" lean-forward="true" selection-start-line="9" selection-start-column="33" selection-end-line="9" selection-end-column="33" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -26,45 +29,28 @@
       </file>
     </leaf>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="-12" />
     <option name="width" value="981" />
     <option name="height" value="1041" />
   </component>
   <component name="ProjectView">
-    <navigator proportions="" version="1">
+    <navigator currentView="Scope" currentSubView="Scope 'Problems'; set:Problems; class com.intellij.psi.search.scope.ProblemsScope" proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
       <pane id="ProjectPane" />
-      <pane id="PackagesPane" />
       <pane id="Scope" />
-      <pane id="AndroidView">
-        <subPane>
-          <expand>
-            <path>
-              <item name="CatchTheMovie" type="1abcf292:AndroidViewProjectNode" />
-              <item name="androidTest" type="e9137016:NonAndroidModuleNode" />
-            </path>
-            <path>
-              <item name="CatchTheMovie" type="1abcf292:AndroidViewProjectNode" />
-              <item name="androidTest" type="e9137016:NonAndroidModuleNode" />
-              <item name="java" type="f7eae187:NonAndroidSourceTypeNode" />
-            </path>
-            <path>
-              <item name="CatchTheMovie" type="1abcf292:AndroidViewProjectNode" />
-              <item name="androidTest" type="e9137016:NonAndroidModuleNode" />
-              <item name="java" type="f7eae187:NonAndroidSourceTypeNode" />
-              <item name="bottomnavigation" type="462c0819:PsiDirectoryNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="android.sdk.path" value="$USER_HOME$/AppData/Local/Android/Sdk" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/BottomNavigation" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -148,10 +134,9 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1295" height="695" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="Captures" order="0" side_tool="true" weight="0.25" />
-      <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.32955465" />
+      <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.3290938" />
       <window_info id="Structure" order="2" side_tool="true" />
       <window_info id="Build Variants" order="3" side_tool="true" />
       <window_info id="Image Layers" order="4" />
@@ -174,8 +159,8 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/BottomNavigation/app/src/androidTest/java/info/androidhive/bottomnavigation/ExampleInstrumentedTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="376">
-          <caret line="24" column="5" selection-start-line="24" selection-start-column="5" selection-end-line="24" selection-end-column="5" />
+        <state relative-caret-position="153">
+          <caret line="9" column="33" lean-forward="true" selection-start-line="9" selection-start-column="33" selection-end-line="9" selection-end-column="33" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

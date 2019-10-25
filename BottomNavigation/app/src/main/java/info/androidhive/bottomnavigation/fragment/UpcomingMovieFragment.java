@@ -41,7 +41,7 @@ import info.androidhive.bottomnavigation.app.MyApplication;
 
 public class UpcomingMovieFragment extends Fragment implements PopupMenu.OnMenuItemClickListener {
 
-    private static final String TAG = "MovieFragment";
+    private static final String TAG = "UpcomingMovieFragment";
     //private static final String TAG = MovieFragment.class.getSimpleName();
 
     // url to fetch shopping items
