@@ -33,7 +33,8 @@ public class MovieShowTimesActivity extends AppCompatActivity {
 
     private CoordinatorLayout mCLayout;
     private TextView mTextView;
-    private String mJSONString = "https://api.myjson.com/bins/138kso";
+    private String mJSONString = "https://api.myjson.com/bins/nffr4";
+
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -60,6 +61,7 @@ public class MovieShowTimesActivity extends AppCompatActivity {
         mTextView.setText("");
         RequestQueue requestQueue = Volley.newRequestQueue(mContext);
 
+        int found = 0;
         JsonArrayRequest jsonArrayRequest = new JsonArrayRequest(Request.Method.GET, mJSONString, null,
                 new Response.Listener<JSONArray>() {
                     @Override
@@ -72,10 +74,15 @@ public class MovieShowTimesActivity extends AppCompatActivity {
                                 String movieName = movie.getString("movieName");
                                 Log.d(TAG, "movie_name retrieved is " + movieName);
                                 String showDates = movie.getString("showDates");
-                                String showTimes = movie.getString("showTimes");
+                                String showDateshref = movie.getString("showDates-href");
+                                if(movieName.equals(moviename) && showDateshref.contains("tab_0"))
+                                {
+                                    String showTimes = movie.getString("showTimes");
+                                    mTextView.append(movieName + " Today's showtime " + showTimes);
+                                    Log.d(TAG, "Same Movie name");
+                                    int found = 1;
+                                }
 
-                                mTextView.append(movieName + " " + showTimes);
-                                Log.d(TAG, "Same Movie name");
 
                             }
                         } catch (JSONException e) {
