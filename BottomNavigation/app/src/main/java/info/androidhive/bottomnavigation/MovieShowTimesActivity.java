@@ -9,8 +9,11 @@ import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Button;
+import android.widget.Toast;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -33,8 +36,8 @@ public class MovieShowTimesActivity extends AppCompatActivity {
 
     private CoordinatorLayout mCLayout;
     private TextView mTextView;
-    private String mJSONString = "https://api.myjson.com/bins/nffr4";
-
+    private String mJSONString = "https://jsonstorage.net/api/items/e0e1035c-a474-4f85-a488-980a7c34ca0b";
+    private Button btnSelectDate;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -57,8 +60,15 @@ public class MovieShowTimesActivity extends AppCompatActivity {
         //
         mCLayout = (CoordinatorLayout) findViewById(R.id.layout_showtimes);
         mTextView = (TextView)findViewById(R.id.text_view_result);
-
         mTextView.setText("");
+        btnSelectDate = (Button)findViewById(R.id.btnSelectDate);
+
+        btnSelectDate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(MovieShowTimesActivity.this, "Date is chosen", Toast.LENGTH_SHORT);
+            }
+        });
         RequestQueue requestQueue = Volley.newRequestQueue(mContext);
 
         int found = 0;
@@ -73,11 +83,12 @@ public class MovieShowTimesActivity extends AppCompatActivity {
 
                                 String movieName = movie.getString("movieName");
                                 Log.d(TAG, "movie_name retrieved is " + movieName);
-                                String showDates = movie.getString("showDates");
                                 String showDateshref = movie.getString("showDates-href");
                                 if(movieName.equals(moviename) && showDateshref.contains("tab_0"))
                                 {
+                                    String showDates = movie.getString("showDates");
                                     String showTimes = movie.getString("showTimes");
+                                    btnSelectDate.setText(showDates);
                                     mTextView.append(movieName + " Today's showtime " + showTimes);
                                     Log.d(TAG, "Same Movie name");
                                     int found = 1;

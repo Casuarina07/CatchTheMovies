@@ -22,11 +22,22 @@
             android:textColor="#FFF"
             android:textSize="16dp" />
 
+        <Button
+            android:id="@+id/btnSelectDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:layout_marginLeft="16dp"
+            android:layout_centerInParent="true"
+            android:background="#ffa500"
+            />
+
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingLeft="@dimen/activity_horizontal_margin"
             android:paddingTop="30dp"
+            android:layout_marginTop="50dp"
             android:text="Results"
             android:textColor="#FFF"
             android:textSize="20dp"
@@ -37,5 +48,6 @@
             />
 
     </android.support.design.widget.CoordinatorLayout>
+
 
 </android.support.v4.widget.NestedScrollView>
