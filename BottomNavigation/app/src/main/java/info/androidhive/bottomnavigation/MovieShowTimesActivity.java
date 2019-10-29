@@ -11,6 +11,7 @@ import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.LinearLayout;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Button;
 import android.widget.Toast;
@@ -26,6 +27,7 @@ import com.android.volley.toolbox.Volley;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.w3c.dom.Text;
 
 public class MovieShowTimesActivity extends AppCompatActivity {
     private static final String TAG = "MovieShowTimesActivity";
@@ -36,8 +38,10 @@ public class MovieShowTimesActivity extends AppCompatActivity {
 
     private CoordinatorLayout mCLayout;
     private TextView mTextView;
-    private String mJSONString = "https://jsonstorage.net/api/items/e0e1035c-a474-4f85-a488-980a7c34ca0b";
+    private TextView txtShowtime;
+    private String mJSONString = "https://jsonstorage.net/api/items/275e5f8c-b0ca-4581-b953-094911bee462";
     private Button btnSelectDate;
+    private ProgressBar progressBar;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -61,7 +65,12 @@ public class MovieShowTimesActivity extends AppCompatActivity {
         mCLayout = (CoordinatorLayout) findViewById(R.id.layout_showtimes);
         mTextView = (TextView)findViewById(R.id.text_view_result);
         mTextView.setText("");
+        txtShowtime = (TextView) findViewById(R.id.txtShowtimes);
+        txtShowtime.setText("Showtimes for " + moviename + "\n");
         btnSelectDate = (Button)findViewById(R.id.btnSelectDate);
+        progressBar = (ProgressBar) findViewById(R.id.progressBar1);
+
+
 
         btnSelectDate.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -86,12 +95,14 @@ public class MovieShowTimesActivity extends AppCompatActivity {
                                 String showDateshref = movie.getString("showDates-href");
                                 if(movieName.equals(moviename) && showDateshref.contains("tab_0"))
                                 {
+
                                     String showDates = movie.getString("showDates");
-                                    String showTimes = movie.getString("showTimes");
+                                    String showTime = movie.getString("showtimelocation");
+                                    showTime = showTime.replace("\n", "");
                                     btnSelectDate.setText(showDates);
-                                    mTextView.append(movieName + " Today's showtime " + showTimes);
+                                    progressBar.setVisibility(View.INVISIBLE);
+                                    mTextView.append(showTime + "\n");
                                     Log.d(TAG, "Same Movie name");
-                                    int found = 1;
                                 }
 
 
