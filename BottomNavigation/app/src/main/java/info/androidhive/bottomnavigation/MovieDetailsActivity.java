@@ -100,7 +100,6 @@ public class MovieDetailsActivity extends AppCompatActivity {
         Log.d(TAG, "moviename that was chosen was " + moviename);
         startActivity(intent);
         Log.d(TAG, "new intent started");
-
     }
 
 }
