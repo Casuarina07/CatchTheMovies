@@ -42,7 +42,7 @@ public class MovieShowTimesActivity extends AppCompatActivity {
     private CoordinatorLayout mCLayout;
     private TextView mTextView;
     private TextView txtShowtime;
-    private String mJSONString = "https://jsonstorage.net/api/items/275e5f8c-b0ca-4581-b953-094911bee462";
+    private String mJSONString = "https://jsonstorage.net/api/items/6b7807fa-dbd7-4847-90ea-f55bb6204ec1";
     private Button btnSelectDate;
     private ProgressBar progressBar;
     private NestedScrollView scroll;
@@ -98,7 +98,7 @@ public class MovieShowTimesActivity extends AppCompatActivity {
 
                                 String movieName = movie.getString("movieName");
                                 Log.d(TAG, "movie_name retrieved is " + movieName);
-                                String showDateshref = movie.getString("showDates-href");
+                                String showDateshref = movie.getString("showDatesLink");
                                 if(movieName.equals(moviename) && showDateshref.contains("tab_0"))
                                 {
                                     //date
