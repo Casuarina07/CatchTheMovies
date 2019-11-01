@@ -1,16 +1,21 @@
 package info.androidhive.bottomnavigation;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+
+import info.androidhive.bottomnavigation.fragment.MovieShowTimeFragment;
 
 public class MovieDetailsActivity extends AppCompatActivity {
     private static final String TAG = "MovieDetailsActivity";
@@ -59,8 +64,9 @@ public class MovieDetailsActivity extends AppCompatActivity {
     private void setDetails(String imageurl, String moviename, String movieadvice, String movielanguage, String movieduration, String moviesynopsis, String moviedirector, String moviecast){
         Log.d(TAG, "setDetails: setting to image and name to widgets.");
 
-        TextView image = findViewById(R.id.movie_title);
-        image.setText(moviename);
+        TextView title = findViewById(R.id.movie_title);
+        title.setText(moviename);
+
 
         TextView advice = findViewById(R.id.movie_advice);
         advice.setText(movieadvice);
@@ -93,14 +99,26 @@ public class MovieDetailsActivity extends AppCompatActivity {
     }
 
     public void viewShowTimes(View v){
-        Log.d(TAG, "viewShowTimes triggered");
-        Intent intent = new Intent(MovieDetailsActivity.this, MovieShowTimesActivity.class);
+        Button btnShowtimes = findViewById(R.id.btnShowtimes);
+        Fragment fragment;
+        fragment = new MovieShowTimeFragment();
         String moviename = getIntent().getStringExtra("movie_name");
-        intent.putExtra("movie_name" , moviename);
-        Log.d(TAG, "moviename that was chosen was " + moviename);
-        startActivity(intent);
-        Log.d(TAG, "new intent started");
-
+        Bundle bundle = new Bundle();
+        bundle.putString("movie_name", moviename);
+        fragment.setArguments(bundle);
+        Log.d(TAG, "Calling loadFragment");
+        loadFragment(fragment);
     }
+    private void loadFragment(Fragment fragment) {
+        // load fragment
+        FragmentManager manager = getSupportFragmentManager();
+        FragmentTransaction transaction = manager.beginTransaction();
+        Log.d(TAG, "Entering new Fragment");
+        transaction.replace(R.id.layout_container, fragment);
+        transaction.commit();
+        Log.d(TAG, "Entered new Fragment");
+    }
+
+
 
 }

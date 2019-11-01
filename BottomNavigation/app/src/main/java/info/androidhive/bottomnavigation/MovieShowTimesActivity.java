@@ -6,11 +6,15 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.Snackbar;
+import android.support.v4.widget.NestedScrollView;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.LinearLayout;
+import android.widget.ProgressBar;
+import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Button;
 import android.widget.Toast;
@@ -26,6 +30,7 @@ import com.android.volley.toolbox.Volley;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.w3c.dom.Text;
 
 public class MovieShowTimesActivity extends AppCompatActivity {
     private static final String TAG = "MovieShowTimesActivity";
@@ -36,15 +41,17 @@ public class MovieShowTimesActivity extends AppCompatActivity {
 
     private CoordinatorLayout mCLayout;
     private TextView mTextView;
-    private String mJSONString = "https://jsonstorage.net/api/items/e0e1035c-a474-4f85-a488-980a7c34ca0b";
+    private TextView txtShowtime;
+    private String mJSONString = "https://jsonstorage.net/api/items/6b7807fa-dbd7-4847-90ea-f55bb6204ec1";
     private Button btnSelectDate;
+    private ProgressBar progressBar;
+    private NestedScrollView scroll;
+    private LinearLayout linearLayout;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_showtimes);
-
-        getIncomingIntent();
 
         //Add Back button
         getSupportActionBar().setDisplayShowHomeEnabled(true);
@@ -61,7 +68,15 @@ public class MovieShowTimesActivity extends AppCompatActivity {
         mCLayout = (CoordinatorLayout) findViewById(R.id.layout_showtimes);
         mTextView = (TextView)findViewById(R.id.text_view_result);
         mTextView.setText("");
+        txtShowtime = (TextView) findViewById(R.id.txtShowtimes);
+        txtShowtime.setText("Showtimes for " + moviename + "\n");
         btnSelectDate = (Button)findViewById(R.id.btnSelectDate);
+        progressBar = (ProgressBar) findViewById(R.id.progressBar1);
+        scroll = this.findViewById(R.id.layout_container);
+        linearLayout = (LinearLayout)findViewById(R.id.linear_container);
+
+
+
 
         btnSelectDate.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -83,15 +98,27 @@ public class MovieShowTimesActivity extends AppCompatActivity {
 
                                 String movieName = movie.getString("movieName");
                                 Log.d(TAG, "movie_name retrieved is " + movieName);
-                                String showDateshref = movie.getString("showDates-href");
+                                String showDateshref = movie.getString("showDatesLink");
                                 if(movieName.equals(moviename) && showDateshref.contains("tab_0"))
                                 {
+                                    //date
+                                    Button btnTag = new Button(MovieShowTimesActivity.this);
                                     String showDates = movie.getString("showDates");
-                                    String showTimes = movie.getString("showTimes");
                                     btnSelectDate.setText(showDates);
-                                    mTextView.append(movieName + " Today's showtime " + showTimes);
+                                    linearLayout.addView(btnTag);
+                                    //time and location
+                                    String showTime = movie.getString("showtimelocation");
+                                    showTime = showTime.replace("\n", "");
+                                    String[] showlocation = showTime.split("   ");
+                                    Log.d(TAG,"location"+ showlocation[0]);
+                                    String showtime = showlocation[showlocation.length-1];
+                                    Log.d(TAG,"time"+ showtime);
+                                    progressBar.setVisibility(View.INVISIBLE);
+                                    //append to text view
+                                    btnTag.setText(showtime);
+                                    mTextView.append(showlocation[0] + " " + showtime + "\n" );
+
                                     Log.d(TAG, "Same Movie name");
-                                    int found = 1;
                                 }
 
 
@@ -109,6 +136,8 @@ public class MovieShowTimesActivity extends AppCompatActivity {
                 });
 
         requestQueue.add(jsonArrayRequest);
+
+
     }
 
     @Override
@@ -122,8 +151,4 @@ public class MovieShowTimesActivity extends AppCompatActivity {
     }
 
 
-
-    private void getIncomingIntent(){
-
-    }
 }
