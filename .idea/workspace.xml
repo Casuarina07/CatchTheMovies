@@ -2,8 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2e531d4c-d04c-4974-a305-0cf8d3c1ed1e" name="Default Changelist" comment="">
+<<<<<<< Updated upstream
       <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+=======
+      <change afterPath="$PROJECT_DIR$/BottomNavigation/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BottomNavigation/.idea/caches/build_file_checksums.ser" beforeDir="false" afterPath="$PROJECT_DIR$/BottomNavigation/.idea/caches/build_file_checksums.ser" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BottomNavigation/.idea/caches/gradle_models.ser" beforeDir="false" afterPath="$PROJECT_DIR$/BottomNavigation/.idea/caches/gradle_models.ser" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BottomNavigation/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/BottomNavigation/.idea/misc.xml" afterDir="false" />
+>>>>>>> Stashed changes
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -12,7 +19,7 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="Nexus_5X_API_25" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="Pixel_XL_API_28" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="true">
@@ -38,12 +45,20 @@
     <option name="height" value="1041" />
   </component>
   <component name="ProjectView">
+<<<<<<< Updated upstream
     <navigator currentView="Scope" currentSubView="Scope 'Problems'; set:Problems; class com.intellij.psi.search.scope.ProblemsScope" proportions="" version="1">
+=======
+    <navigator currentView="ProjectPane" proportions="" version="1">
+>>>>>>> Stashed changes
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="ProjectPane" />
       <pane id="Scope" />
+      <pane id="ProjectPane" />
+<<<<<<< Updated upstream
+      <pane id="Scope" />
+=======
+>>>>>>> Stashed changes
       <pane id="PackagesPane" />
     </panes>
   </component>
