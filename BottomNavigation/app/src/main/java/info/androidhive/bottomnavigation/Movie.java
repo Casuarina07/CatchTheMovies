@@ -11,6 +11,13 @@ public class Movie {
     String movieReleaseDate;
     String movieDistributor;
     String movieSynopsis;
+    String movieReview;
+    //
+    String movieName;
+    String showDates;
+    String showDatesLink;
+    String showtimelocation;
+
 
     public String getMovieAdvice() {
         return movieAdvice;
@@ -92,5 +99,35 @@ public class Movie {
         this.image = image;
     }
 
+    //
+    public String getMovieName() {
+        return movieName;
+    }
+
+    public void setMovieName(String movieName) {
+        this.movieName = movieName;
+    }
+
+    public String getShowDates() {
+        return showDates;
+    }
+
+    public void setShowDates(String showDates) {
+        this.showDates = showDates;
+    }
+
+    public String getShowDatesLink() {
+        return showDatesLink;
+    }
+
+    public void setShowDatesLink(String showDatesLink) {
+        this.showDatesLink = showDatesLink;
+    }
+
+    public String getShowtimelocation() {
+        return showtimelocation;
+    }
+
+    public void setShowtimelocation(String showtimelocation) { this.showtimelocation = showtimelocation; }
 
 }
