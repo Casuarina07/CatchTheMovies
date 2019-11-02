@@ -13,17 +13,37 @@
         android:background="@color/bgColor"
         android:id="@+id/layout_upcomingcontainer">
 
-        <TextView
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingLeft="@dimen/activity_horizontal_margin"
-            android:paddingTop="10dp"
-            android:text="Upcoming"
-            android:clickable="true"
-            android:id="@+id/click"
-            android:textColor="#FFF"
-            android:textSize="16dp" />
+            android:layout_marginLeft="1dp"
+            android:layout_marginRight="1dp"
+            android:background="@color/bgColor">
 
+            <TextView
+                android:id="@+id/click"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:clickable="true"
+                android:paddingLeft="@dimen/activity_horizontal_margin"
+                android:paddingTop="10dp"
+                android:text="Upcoming"
+                android:textColor="#FFF"
+                android:textSize="16dp"
+                android:layout_marginRight="-200dp"/>
+
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="0dp"
+                android:layout_height="20dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="25px"
+                android:layout_weight="1"
+                android:scaleType="fitStart"
+                android:src="@android:drawable/arrow_down_float" />
+
+        </LinearLayout>
         <android.support.v7.widget.RecyclerView
             android:id="@+id/recycler_view"
             android:layout_width="match_parent"

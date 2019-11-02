@@ -4,10 +4,13 @@ package info.androidhive.bottomnavigation.fragment;
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.Resources;
+import android.graphics.Color;
 import android.graphics.Rect;
+import android.graphics.drawable.Drawable;
 import android.media.Image;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.graphics.ColorUtils;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -26,6 +29,7 @@ import android.widget.Toast;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
+import com.bumptech.glide.disklrucache.DiskLruCache;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
@@ -285,6 +289,8 @@ public class MovieShowTimeFragment extends Fragment  {
                         //listViewMovie.setAdapter(adapter);
                         Toast.makeText(getActivity(),"This is num of items: " +itemsList.size(), Toast.LENGTH_SHORT).show();
                         // refreshing recycler view
+                        //set default display to TODAY
+                        day1.performClick();
                     }
                 }, new Response.ErrorListener() {
             @Override
@@ -297,12 +303,22 @@ public class MovieShowTimeFragment extends Fragment  {
 
         MyApplication.getInstance().addToRequestQueue(request);
 
-
         day1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 listViewShowtime.setAdapter(adapter1);
                 listViewShowtime.setVisibility(View.VISIBLE);
+                day1.setBackgroundColor(Color.parseColor("#7b4bff"));
+                day1.setTextColor(Color.WHITE);
+                //
+                day2.setBackgroundColor(Color.LTGRAY);
+                day2.setTextColor(Color.BLACK);
+                day3.setBackgroundColor(Color.LTGRAY);
+                day3.setTextColor(Color.BLACK);
+                day4.setBackgroundColor(Color.LTGRAY);
+                day4.setTextColor(Color.BLACK);
+                day5.setBackgroundColor(Color.LTGRAY);
+                day5.setTextColor(Color.BLACK);
             }
         });
 
@@ -311,6 +327,17 @@ public class MovieShowTimeFragment extends Fragment  {
             public void onClick(View v) {
                 listViewShowtime.setAdapter(adapter2);
                 listViewShowtime.setVisibility(View.VISIBLE);
+                day2.setBackgroundColor(Color.parseColor("#7b4bff"));
+                day2.setTextColor(Color.WHITE);
+                //
+                day1.setBackgroundColor(Color.LTGRAY);
+                day1.setTextColor(Color.BLACK);
+                day3.setBackgroundColor(Color.LTGRAY);
+                day3.setTextColor(Color.BLACK);
+                day4.setBackgroundColor(Color.LTGRAY);
+                day4.setTextColor(Color.BLACK);
+                day5.setBackgroundColor(Color.LTGRAY);
+                day5.setTextColor(Color.BLACK);
             }
         });
 
@@ -319,6 +346,17 @@ public class MovieShowTimeFragment extends Fragment  {
             public void onClick(View v) {
                 listViewShowtime.setAdapter(adapter3);
                 listViewShowtime.setVisibility(View.VISIBLE);
+                day3.setBackgroundColor(Color.parseColor("#7b4bff"));
+                day3.setTextColor(Color.WHITE);
+                //
+                day1.setBackgroundColor(Color.LTGRAY);
+                day1.setTextColor(Color.BLACK);
+                day2.setBackgroundColor(Color.LTGRAY);
+                day2.setTextColor(Color.BLACK);
+                day4.setBackgroundColor(Color.LTGRAY);
+                day4.setTextColor(Color.BLACK);
+                day5.setBackgroundColor(Color.LTGRAY);
+                day5.setTextColor(Color.BLACK);
             }
         });
 
@@ -327,6 +365,17 @@ public class MovieShowTimeFragment extends Fragment  {
             public void onClick(View v) {
                 listViewShowtime.setAdapter(adapter4);
                 listViewShowtime.setVisibility(View.VISIBLE);
+                day4.setBackgroundColor(Color.parseColor("#7b4bff"));
+                day4.setTextColor(Color.WHITE);
+                //
+                day1.setBackgroundColor(Color.LTGRAY);
+                day1.setTextColor(Color.BLACK);
+                day2.setBackgroundColor(Color.LTGRAY);
+                day2.setTextColor(Color.BLACK);
+                day3.setBackgroundColor(Color.LTGRAY);
+                day3.setTextColor(Color.BLACK);
+                day5.setBackgroundColor(Color.LTGRAY);
+                day5.setTextColor(Color.BLACK);
             }
         });
 
@@ -335,6 +384,17 @@ public class MovieShowTimeFragment extends Fragment  {
             public void onClick(View v) {
                 listViewShowtime.setAdapter(adapter5);
                 listViewShowtime.setVisibility(View.VISIBLE);
+                day5.setBackgroundColor(Color.parseColor("#7b4bff"));
+                day5.setTextColor(Color.WHITE);
+                //
+                day1.setBackgroundColor(Color.LTGRAY);
+                day1.setTextColor(Color.BLACK);
+                day2.setBackgroundColor(Color.LTGRAY);
+                day2.setTextColor(Color.BLACK);
+                day3.setBackgroundColor(Color.LTGRAY);
+                day3.setTextColor(Color.BLACK);
+                day4.setBackgroundColor(Color.LTGRAY);
+                day4.setTextColor(Color.BLACK);
             }
         });
 

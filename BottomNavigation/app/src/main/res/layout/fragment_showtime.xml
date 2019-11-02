@@ -28,16 +28,20 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="1"
+            android:scrollbarSize="4dp"
             android:tag="day1"
-            android:textSize="10sp" />
+            android:textSize="10sp"
+            android:layout_marginBottom="20px"/>
 
         <Button
             android:id="@+id/day2"
             android:layout_width="wrap_content"
-            android:layout_height="100dp"
+            android:layout_height="match_parent"
             android:layout_weight="1"
+            android:scrollbarSize="4dp"
             android:tag="day2"
-            android:textSize="10sp" />
+            android:textSize="10sp"
+            android:layout_marginBottom="20px"/>
 
         <Button
             android:id="@+id/day3"
@@ -46,7 +50,8 @@
             android:layout_weight="1"
             android:scrollbarSize="4dp"
             android:tag="day3"
-            android:textSize="10sp" />
+            android:textSize="10sp"
+            android:layout_marginBottom="20px"/>
 
         <Button
             android:id="@+id/day4"
@@ -55,7 +60,8 @@
             android:layout_weight="1"
             android:scrollbarSize="4dp"
             android:tag="day4"
-            android:textSize="10sp" />
+            android:textSize="10sp"
+            android:layout_marginBottom="20px"/>
 
         <Button
             android:id="@+id/day5"
@@ -64,7 +70,8 @@
             android:layout_weight="1"
             android:scrollbarSize="4dp"
             android:tag="day5"
-            android:textSize="10sp" />
+            android:textSize="10sp"
+            android:layout_marginBottom="20px"/>
     </LinearLayout>
 
     <ListView
