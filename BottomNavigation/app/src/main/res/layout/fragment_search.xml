@@ -5,6 +5,8 @@
     tools:context="info.androidhive.bottomnavigation.fragment.SearchFragment"
     android:background="@color/bgColor">
 
+
+
     <Button
         android:id="@+id/searchViewMovie"
         android:layout_width="match_parent"
@@ -35,7 +37,6 @@
         android:layout_marginTop="350dp"
         android:layout_marginRight="75dp"
         android:background="@android:color/holo_orange_dark"
-        android:onClick="findMovie"
         android:text="SEARCH"
         android:textSize="32sp" />
 
@@ -50,8 +51,19 @@
         android:background="@android:color/darker_gray"
         android:divider="#ad5"
         android:dividerHeight="2dp"
-        android:visibility="invisible">
+        android:visibility="invisible"/>
 
-    </ListView>
+    <ListView
+        android:id="@+id/listViewDate"
+        android:layout_width="339dp"
+        android:layout_height="327dp"
+        android:layout_marginLeft="25dp"
+        android:layout_marginTop="250dp"
+        android:layout_marginRight="20dp"
+        android:layout_below = "@+id/searchViewDate"
+        android:divider="#ad5"
+        android:dividerHeight="2dp"
+        android:background="@android:color/darker_gray"
+        android:visibility="invisible" />
 
 </FrameLayout>

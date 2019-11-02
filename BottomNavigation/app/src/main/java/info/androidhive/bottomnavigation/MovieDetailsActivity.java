@@ -19,7 +19,7 @@ import info.androidhive.bottomnavigation.fragment.MovieShowTimeFragment;
 
 public class MovieDetailsActivity extends AppCompatActivity {
     private static final String TAG = "MovieDetailsActivity";
-
+    String moviename;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -50,7 +50,7 @@ public class MovieDetailsActivity extends AppCompatActivity {
         if(getIntent().hasExtra("image_url") && getIntent().hasExtra("movie_name")){
             Log.d(TAG, "getIncomingIntent: found intent extras.");
             String imageurl = getIntent().getStringExtra("image_url");
-            String moviename = getIntent().getStringExtra("movie_name");
+            moviename = getIntent().getStringExtra("movie_name");
             String movieadvice = getIntent().getStringExtra("movie_advice");
             String movielanguage = getIntent().getStringExtra("movie_language");
             String movieduration = getIntent().getStringExtra("movie_duration");
@@ -101,7 +101,8 @@ public class MovieDetailsActivity extends AppCompatActivity {
     public void viewShowTimes(View v){
         Button btnShowtimes = findViewById(R.id.btnShowtimes);
         Fragment fragment;
-        fragment = new MovieShowTimeFragment();
+        fragment = new MovieShowTimeFragment(moviename);
+        btnShowtimes.setVisibility(View.INVISIBLE);
         String moviename = getIntent().getStringExtra("movie_name");
         Bundle bundle = new Bundle();
         bundle.putString("movie_name", moviename);

@@ -13,6 +13,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
+import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.ScrollView;
 import android.widget.TextView;
@@ -74,7 +75,6 @@ public class MovieShowTimesActivity extends AppCompatActivity {
         progressBar = (ProgressBar) findViewById(R.id.progressBar1);
         scroll = this.findViewById(R.id.layout_container);
         linearLayout = (LinearLayout)findViewById(R.id.linear_container);
-
 
 
 
