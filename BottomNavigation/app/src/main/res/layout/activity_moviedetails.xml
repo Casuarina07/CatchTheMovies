@@ -129,10 +129,13 @@
 
     <Button
         android:id="@+id/btnShowtimes"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Show Times"
+        android:text="View Show Time"
+        android:textSize="20sp"
         android:onClick="viewShowTimes"
+        android:background="@color/colorPrimary"
+        android:textColor="@color/txtColor"
         android:layout_gravity="bottom">
     </Button>
 
