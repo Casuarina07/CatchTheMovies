@@ -54,7 +54,7 @@ public class MovieShowTimeFragment extends Fragment  {
     //private static final String TAG = MovieFragment.class.getSimpleName();
 
     // url to fetch movie show time
-    private static final String URL = "https://jsonstorage.net/api/items/2bf00d01-c3b8-44b4-af4c-e1ccfa94fc18";
+    private static final String URL = "https://jsonstorage.net/api/items/b2410d1c-68b7-43d3-a16f-118c976700e9";
 
     private RecyclerView recyclerView;
     private List<Movie> showtimelist;
@@ -78,10 +78,14 @@ public class MovieShowTimeFragment extends Fragment  {
     private ArrayList<String> listDay4;
     private ArrayList<String> listDay5;
 
-    private ArrayList<String> arrayOfDays;
 
     private String movieName = null;
     private String showDateshref = null;
+
+    private String setByMovie = " ";
+    private int setByDate = -1;
+    private boolean setBySearch = false;
+
     public MovieShowTimeFragment() {
         // Required empty public constructor
     }
@@ -96,6 +100,13 @@ public class MovieShowTimeFragment extends Fragment  {
     public MovieShowTimeFragment(String moviename)
     {
         this.moviename = moviename;
+    }
+
+    public MovieShowTimeFragment(String setByMovieName, int setByDatePos)
+    {
+        setByMovie = setByMovieName;
+        setByDate = setByDatePos;
+        setBySearch = true;
     }
 
 
@@ -163,13 +174,13 @@ public class MovieShowTimeFragment extends Fragment  {
                                 e.printStackTrace();
                             }
 
-                            if(movieName.equals(moviename))
+                            if(movieName.equals(moviename) || (setBySearch == true && setByMovie.equals(movieName)))
                             {
                                 if(showDateshref.contains("tab_0"))
                                 {
 
                                     try {
-                                        Log.d(TAG, "this movie_name is " + moviename);
+                                        Log.d(TAG, "this movie_name is " + movieName);
 
                                         String showDate = movie.getString("showDates");
                                         Log.d(TAG, "this movie_date is " + showDate);
@@ -180,7 +191,6 @@ public class MovieShowTimeFragment extends Fragment  {
                                         showTime = showTime.replace("                                        ", "    ");
                                         showTime = showTime.replace("    ", "\n");
                                         listDay1.add(showTime);
-
                                         adapter1 = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_list_item_1, android.R.id.text1, listDay1);
                                         // showTime = showTime.replace("   ")
                                         //String[] showlocation = showTime.split("   ");
@@ -193,7 +203,7 @@ public class MovieShowTimeFragment extends Fragment  {
                                 if(showDateshref.contains("tab_1"))
                                 {
                                     try {
-                                        Log.d(TAG, "this movie_name is " + moviename);
+                                        Log.d(TAG, "this movie_name is " + movieName);
 
                                         String showDate = movie.getString("showDates");
                                         Log.d(TAG, "this movie_date is " + showDate);
@@ -278,19 +288,49 @@ public class MovieShowTimeFragment extends Fragment  {
                                         e.printStackTrace();
                                     }
                                 }
-                                Log.d(TAG, "This is array of dates: " + arrayOfDays);
+
                             }
                             Log.d(TAG,"This is the listDay1:"+ listDay1.toString());
 
 
 
                         }
+
+                        if(setBySearch)
+                        {
+                            if(setByDate == 0 )
+                            {
+                                day1.performClick();
+                            }
+                            if(setByDate == 1)
+                            {
+                                day2.performClick();
+                            }
+                            if(setByDate == 2)
+                            {
+                                day3.performClick();
+                            }
+                            if(setByDate == 3)
+                            {
+                                day4.performClick();
+                            }
+
+                            if(setByDate == 4)
+                            {
+                                day5.performClick();
+                            }
+                        }
+
                         // adapter = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_list_item_1, android.R.id.text1, list);
                         //listViewMovie.setAdapter(adapter);
                         Toast.makeText(getActivity(),"This is num of items: " +itemsList.size(), Toast.LENGTH_SHORT).show();
                         // refreshing recycler view
                         //set default display to TODAY
-                        day1.performClick();
+                        if(setBySearch == false)
+                        {
+                            day1.performClick();
+                        }
+
                     }
                 }, new Response.ErrorListener() {
             @Override
@@ -322,6 +362,7 @@ public class MovieShowTimeFragment extends Fragment  {
             }
         });
 
+
         day2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -340,6 +381,9 @@ public class MovieShowTimeFragment extends Fragment  {
                 day5.setTextColor(Color.BLACK);
             }
         });
+
+
+
 
         day3.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -360,6 +404,8 @@ public class MovieShowTimeFragment extends Fragment  {
             }
         });
 
+
+
         day4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -379,6 +425,8 @@ public class MovieShowTimeFragment extends Fragment  {
             }
         });
 
+
+
         day5.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -397,6 +445,7 @@ public class MovieShowTimeFragment extends Fragment  {
                 day4.setTextColor(Color.BLACK);
             }
         });
+
 
         return view;
     }

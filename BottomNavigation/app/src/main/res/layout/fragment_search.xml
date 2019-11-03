@@ -55,15 +55,15 @@
 
     <ListView
         android:id="@+id/listViewDate"
-        android:layout_width="339dp"
-        android:layout_height="327dp"
+        android:layout_width="344dp"
+        android:layout_height="291dp"
+        android:layout_below="@+id/searchViewDate"
         android:layout_marginLeft="25dp"
         android:layout_marginTop="250dp"
         android:layout_marginRight="20dp"
-        android:layout_below = "@+id/searchViewDate"
+        android:background="@android:color/darker_gray"
         android:divider="#ad5"
         android:dividerHeight="2dp"
-        android:background="@android:color/darker_gray"
         android:visibility="invisible" />
 
 </FrameLayout>
