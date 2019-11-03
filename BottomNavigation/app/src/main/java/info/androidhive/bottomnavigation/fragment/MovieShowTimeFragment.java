@@ -70,6 +70,8 @@ public class MovieShowTimeFragment extends Fragment  {
     private ArrayAdapter<String> adapter4;
     private ArrayAdapter<String> adapter5;
 
+
+    
     private ListView listViewShowtime;
     private JSONObject movie;
     private ArrayList<String> listDay1;
