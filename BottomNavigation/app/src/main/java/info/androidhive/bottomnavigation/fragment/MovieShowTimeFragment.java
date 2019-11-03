@@ -61,6 +61,7 @@ public class MovieShowTimeFragment extends Fragment  {
     private String moviename;
     private TextView txtShowtime;
 
+    
     private List<Movie> items;
     private List<Movie> movieList;
     private List<Movie> itemsList;
