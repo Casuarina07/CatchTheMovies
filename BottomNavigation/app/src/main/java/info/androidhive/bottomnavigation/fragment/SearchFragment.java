@@ -22,8 +22,13 @@ import com.google.gson.reflect.TypeToken;
 
 import org.json.JSONArray;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import info.androidhive.bottomnavigation.MainActivity;
 import info.androidhive.bottomnavigation.Movie;
@@ -40,13 +45,18 @@ public class SearchFragment extends Fragment {
 
     private List<Movie> itemsList;
     private ArrayAdapter<String> adapter;
+    private ArrayAdapter<String> adapterDate;
     private ArrayList<String> list;
+    private ArrayList<String> listDate;
     private List<Movie> items;
     private List<Movie> movieList;
     private ListView listViewMovie;
+    private ListView listViewDate;
     private boolean clickedSelectMovie = false;
+    private boolean clickedSelectDate = false;
     private MovieFragment movieFragment = new MovieFragment();
     int clickedMovie = -1;
+    int clickedDate = -1;
     public SearchFragment() {
         // Required empty public constructor
     }
@@ -74,11 +84,18 @@ public class SearchFragment extends Fragment {
         final Button searchViewDate = view.findViewById(R.id.searchViewDate);
         final Button searchButton = view.findViewById(R.id.Search);
         listViewMovie = view.findViewById(R.id.listViewMovie);
+        listViewDate = view.findViewById(R.id.listViewDate);
       //  MovieFragment movieFragment = new MovieFragment();
+        MovieShowTimeFragment movieShowTimeFragment = new MovieShowTimeFragment();
         itemsList = new ArrayList<>();
         items = new ArrayList<>();
         list = new ArrayList<String>();
+        listDate = new ArrayList<String>();
+        getCurrentDates();
         fetchStoreItems();
+
+
+
 
         searchViewMovie.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -102,6 +119,29 @@ public class SearchFragment extends Fragment {
 
             }
         });
+
+
+
+        searchViewDate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view)
+            {
+                if(clickedSelectDate == false)
+                {
+                    listViewDate.setVisibility(View.VISIBLE);
+                    searchButton.setVisibility(View.INVISIBLE);
+                    clickedSelectDate = true;
+                }
+                else
+                {
+                    listViewDate.setVisibility(View.INVISIBLE);
+                    searchButton.setVisibility(View.VISIBLE);
+                    clickedSelectDate = false;
+                }
+
+            }
+        });
+
 
         searchButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -160,7 +200,47 @@ public class SearchFragment extends Fragment {
             }
         });
 
+        listViewDate.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int position, long id)
+            {
+                searchViewDate.setText(listDate.get(position));
+                clickedDate = position;
+                listViewDate.setVisibility(View.INVISIBLE);
+                searchButton.setVisibility(View.VISIBLE);
+            }
+        });
+
+
         return view;
+    }
+
+    private static Date addDays(Date date, int days)
+    {
+        Calendar cal = Calendar.getInstance();
+        cal.setTime(date);
+        cal.add(Calendar.DATE, days); //minus number would decrement the days
+        return cal.getTime();
+    }
+
+    private void getCurrentDates()
+    {
+        Date currentDate = new Date();
+        String date;
+        SimpleDateFormat objSDF = new SimpleDateFormat("EE dd MMM");
+        for (int i =0; i<5; i++)
+        {
+            date = objSDF.format(currentDate);
+            if(i ==0)
+            {
+                date = "Today " + date;
+            }
+            listDate.add(date);
+            currentDate = SearchFragment.addDays(currentDate, 1);
+            Log.d(TAG, "Dates: " + date);
+        }
+        adapterDate = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_list_item_1, android.R.id.text1, listDate);
+        listViewDate.setAdapter(adapterDate);
     }
 
     private void fetchStoreItems() {
@@ -183,8 +263,10 @@ public class SearchFragment extends Fragment {
                         {
                             Movie movie = itemsList.get(i);
                             list.add(movie.getTitle());
+
                         }
                         adapter = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_list_item_1, android.R.id.text1, list);
+
                         listViewMovie.setAdapter(adapter);
                         Toast.makeText(getActivity(),"This is num of items: " +itemsList.size(), Toast.LENGTH_SHORT).show();
                         // refreshing recycler view

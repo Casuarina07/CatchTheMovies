@@ -1,54 +1,92 @@
-<android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nestedScrollView2"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/bgColor"
-    tools:context="info.androidhive.bottomnavigation.fragment.MovieShowTimeFragment"
-    >
+    tools:context="info.androidhive.bottomnavigation.fragment.MovieShowTimeFragment">
 
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:background="@color/bgColor"
-        android:id="@+id/layout_container">
-
-        <TextView
-            android:id="@+id/txtShowtimes"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingLeft="@dimen/activity_horizontal_margin"
-            android:paddingTop="10dp"
-            android:text="Showtime"
-            android:textColor="#FFF"
-            android:textSize="16dp" />
+        android:layout_width="409dp"
+        android:layout_height="100dp"
+        android:layout_marginStart="1dp"
+        android:layout_marginLeft="1dp"
+        android:layout_marginTop="100dp"
+        android:layout_marginEnd="1dp"
+        android:layout_marginRight="1dp"
+        android:layout_marginBottom="581dp"
+        android:orientation="horizontal"
+        android:scrollbarSize="3sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <Button
-            android:id="@+id/btnSelectDate"
+            android:id="@+id/day1"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:layout_marginLeft="16dp"
-            android:layout_centerInParent="true"
-            android:background="#ffa500"
-            />
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:scrollbarSize="4dp"
+            android:tag="day1"
+            android:textSize="10sp"
+            android:layout_marginBottom="20px"/>
 
-        <android.support.v7.widget.RecyclerView
-            android:id="@+id/recycler_view"
+        <Button
+            android:id="@+id/day2"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:clipToPadding="false"
-            android:scrollbars="vertical" />
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:scrollbarSize="4dp"
+            android:tag="day2"
+            android:textSize="10sp"
+            android:layout_marginBottom="20px"/>
 
-        <ProgressBar
-            android:id="@+id/progressBar1"
-            style="?android:attr/progressBarStyleLarge"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:layout_gravity="center"
-            android:layout_marginTop="100dp"/>
+        <Button
+            android:id="@+id/day3"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:scrollbarSize="4dp"
+            android:tag="day3"
+            android:textSize="10sp"
+            android:layout_marginBottom="20px"/>
 
+        <Button
+            android:id="@+id/day4"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:scrollbarSize="4dp"
+            android:tag="day4"
+            android:textSize="10sp"
+            android:layout_marginBottom="20px"/>
+
+        <Button
+            android:id="@+id/day5"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:scrollbarSize="4dp"
+            android:tag="day5"
+            android:textSize="10sp"
+            android:layout_marginBottom="20px"/>
     </LinearLayout>
 
-</android.support.v4.widget.NestedScrollView>
+    <ListView
+        android:id="@+id/showtimelist"
+        android:layout_width="398dp"
+        android:layout_height="546dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="176dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginBottom="9dp"
+        android:background="@android:color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+</android.support.constraint.ConstraintLayout>
